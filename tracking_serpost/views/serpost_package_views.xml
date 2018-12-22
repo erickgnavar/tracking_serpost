@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="serpost_package_view_form" model="ir.ui.view">
+            <field name="name">serpost.package.form</field>
+            <field name="model">serpost.package</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button class="oe_highlight" string="Fetch data" name="fetch_data" type="object"/>
+                    </header>
+                    <sheet>
+                        <group string="Package data">
+                            <field name="tracking_number"/>
+                        </group>
+                        <notebook>
+                            <page string="Records">
+                                <field name="record_ids">
+                                    <tree>
+                                        <field name="date"/>
+                                        <field name="message"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="serpost_package_view_tree" model="ir.ui.view">
+            <field name="name">serpost.package.tree</field>
+            <field name="model">serpost.package</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="tracking_number"/>
+                    <field name="records_quantity"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="serpost_package_record_view_form" model="ir.ui.view">
+            <field name="name">serpost.package.record.form</field>
+            <field name="model">serpost.package.record</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="date"/>
+                        <field name="message"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="serpost_package_action" model="ir.actions.act_window">
+            <field name="name">Serpost packages</field>
+            <field name="res_model">serpost.package</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
