@@ -1,0 +1,36 @@
+services:
+  - name: postgres:9.6
+    alias: postgres
+
+variables:
+  POSTGRES_DB: odoo
+  POSTGRES_USER: odoo
+  POSTGRES_PASSWORD: odoo
+
+.job_template: &odoo_definition
+  stage: test
+  image: odoo:11.0
+  before_script:
+    - cp -R $CI_PROJECT_DIR/* /mnt/extra-addons/
+    - python3 -m pip install -r serpost_tracking/requirements.txt
+
+stages:
+  - lint
+  - test
+
+lint_python:
+  stage: lint
+  image: python:3.5
+  script:
+    - pip install -r requirements_test.txt
+    - flake8 .
+
+test_install_tracking_serpost:
+  <<: *odoo_definition
+  script:
+    - odoo --db_host=postgres --db_user=odoo --db_password=odoo --stop-after-init -d tracking_serpost -i tracking_serpost
+
+test_install_tracking_serpost_purchase:
+  <<: *odoo_definition
+  script:
+    - odoo --db_host=postgres --db_user=odoo --db_password=odoo --stop-after-init -d tracking_serpost_purchase -i tracking_serpost_purchase
