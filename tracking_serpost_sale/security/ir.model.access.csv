@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_serpost_package,access_sale_serpost_package,tracking_serpost.model_serpost_package,sales_team.group_sale_salesman,1,1,1,1
+access_sale_serpost_package_record,access_sale_serpost_package_record,tracking_serpost.model_serpost_package_record,sales_team.group_sale_salesman,1,1,1,1

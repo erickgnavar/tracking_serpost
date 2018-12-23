@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem
+                id="menu_sale_serpost_package" name="Serpost packages"
+                parent="sale.product_menu_catalog" action="tracking_serpost.serpost_package_action"/>
+    </data>
+</odoo>

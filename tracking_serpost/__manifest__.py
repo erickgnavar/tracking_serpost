@@ -1,7 +1,7 @@
 {
     "name": "Tracking Serpost",
     "author": "Erick Navarro",
-    "category": "package",
+    "category": "Shipping Logistics",
     "license": "LGPL-3",
     "version": "0.1",
     "description": "Get package tracking data from Serpost using a tracking number",

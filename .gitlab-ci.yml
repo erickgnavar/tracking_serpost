@@ -34,3 +34,8 @@ test_install_tracking_serpost_purchase:
   <<: *odoo_definition
   script:
     - odoo --db_host=postgres --db_user=odoo --db_password=odoo --stop-after-init -d tracking_serpost_purchase -i tracking_serpost_purchase
+
+test_install_tracking_serpost_sale:
+  <<: *odoo_definition
+  script:
+    - odoo --db_host=postgres --db_user=odoo --db_password=odoo --stop-after-init -d tracking_serpost_sale -i tracking_serpost_sale
